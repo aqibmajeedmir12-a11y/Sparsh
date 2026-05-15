@@ -1,0 +1,12 @@
+{
+  "name": "Sparsh",
+  "short_name": "Sparsh",
+  "description": "Accessible Education Platform for Visually & Hearing Impaired Students",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f0c29",
+  "theme_color": "#6C63FF",
+  "orientation": "portrait-primary",
+  "categories": ["education", "accessibility"],
+  "lang": "en-IN"
+}

@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-purple: #6C63FF;
+  --brand-teal:   #00C9A7;
+  --glass-light:  rgba(255,255,255,0.18);
+  --glass-dark:   rgba(30,30,50,0.55);
+  --border-light: rgba(255,255,255,0.35);
+  --border-dark:  rgba(255,255,255,0.10);
+  --blur:         18px;
+}
+
+@layer components {
+  .glass-card {
+    background: var(--glass-dark);
+    backdrop-filter: blur(var(--blur));
+    -webkit-backdrop-filter: blur(var(--blur));
+    border: 0.5px solid var(--border-dark);
+    border-radius: 20px;
+  }
+
+  .glass-input {
+    background: rgba(255,255,255,0.08);
+    border: 0.5px solid rgba(255,255,255,0.2);
+    border-radius: 12px;
+    padding: 12px 16px;
+    color: white;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  
+  .glass-input:focus { border-color: var(--brand-purple); }
+  .glass-input::placeholder { color: rgba(255,255,255,0.4); }
+
+  .gradient-text {
+    background: linear-gradient(90deg, var(--brand-purple), var(--brand-teal));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+body {
+  background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+  min-height: 100vh;
+  color: white;
+}
+
+@media (prefers-color-scheme: light) {
+  .glass-card { background: var(--glass-light); border-color: var(--border-light); }
+  .glass-input { background: rgba(0,0,0,0.05); color: #1a1a2e; }
+  body { background: linear-gradient(135deg, #667eea, #764ba2, #00c9a7); }
+}
+
+:focus-visible { outline: 2px solid var(--brand-purple); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+
+/* ── Agora RTC video player fixes ── */
+/* Agora injects a div.agora_video_player inside the container we pass to .play() */
+div[id^="agora-video-player"],
+.agora_video_player,
+div[class*="agora-video-player"] {
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+}
+
+/* The actual <video> element inside */
+div[id^="agora-video-player"] video,
+.agora_video_player video,
+div[class*="agora-video-player"] video {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+}

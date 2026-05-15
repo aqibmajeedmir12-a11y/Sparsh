@@ -1,0 +1,14 @@
+fastapi>=0.104.1
+uvicorn>=0.23.2
+supabase>=2.3.0
+pydantic>=2.4.2
+python-multipart>=0.0.6
+requests>=2.31.0
+python-dotenv>=1.0.0
+
+# Niral AI Model Dependencies
+torch
+torchvision
+mediapipe
+opencv-python
+Pillow
