@@ -1,131 +1,160 @@
-# Sparsh — Accessible Education Platform
+<div align="center">
 
-> An AI-powered, inclusive education platform serving visually impaired, hearing impaired, and DeafBlind students across India.
+# 🌟 Sparsh
+### *AI-Powered Inclusive Education Platform for Students with Disabilities*
 
-## Quick Start
+<img src="https://img.shields.io/badge/Accessibility-WCAG%202.2%20AA-success?style=for-the-badge" />
+<img src="https://img.shields.io/badge/Security-OWASP%20Top%2010-blue?style=for-the-badge" />
+<img src="https://img.shields.io/badge/Compliance-RPwD%20Act%202016-orange?style=for-the-badge" />
+<img src="https://img.shields.io/badge/India-NEP%202020-green?style=for-the-badge" />
+<img src="https://img.shields.io/badge/License-MIT-purple?style=for-the-badge" />
 
-### 1. Database Setup (Supabase)
-1. Create a project at [supabase.com](https://supabase.com)
-2. Run `database/schema.sql` in the SQL Editor
-3. Run `database/rls_policies.sql` in the SQL Editor
-4. Run `database/seed.sql` for demo data (optional)
+### Empowering India's 2.68 Crore Persons with Disabilities Through Accessible AI Education
 
-### 2. Frontend (Next.js)
-\`\`\`bash
-cd frontend
-npm install
-npm run dev
-# → http://localhost:3000
-\`\`\`
+> **Sparsh** bridges educational barriers for **visually impaired**, **hearing impaired**, and **DeafBlind** learners with cutting-edge AI, secure cloud infrastructure, and universal design principles.
 
-### 3. Backend (FastAPI)
-\`\`\`bash
-cd backend
-pip install -r requirements.txt
-python -m uvicorn main:app --reload
-# → http://localhost:8000
-# → http://localhost:8000/docs  (Swagger UI)
-\`\`\`
-
-### 4. Environment Variables
-Create `frontend/.env.local`:
-\`\`\`env
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
-SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
-NEXT_PUBLIC_BACKEND_URL=http://localhost:8000
-\`\`\`
+</div>
 
 ---
 
-## Role-Based Access
+## ✨ Vision
 
-| Role | Dashboard URL | Default Access |
-|---|---|---|
-| Student | `/student` | Lessons, Sign Lab, Live Class, Assessments, Progress, Reports |
-| Teacher | `/teacher` | Studio, Live Class, Students, Assessments, Reports |
-| Institution Admin | `/admin` | Students, Teachers, Analytics, Compliance, Reports |
-| NGO Admin | `/admin` | Same as Institution Admin |
-| Super Admin | `/super-admin` | Institutions, All Users, AI Monitor, Platform Reports |
+Education should be accessible to everyone.
 
-### Creating Your First Super Admin
-1. Register at `/register` with any email/password
-2. Go to Supabase SQL Editor and run:
-\`\`\`sql
-UPDATE profiles 
-SET role = 'super_admin' 
-WHERE id = (SELECT id FROM auth.users WHERE email = 'your@email.com');
-\`\`\`
-3. Log in at `/login` — you'll be redirected to `/super-admin`
+Sparsh transforms traditional learning into a fully inclusive digital experience by integrating:
+
+- 🤟 AI-generated Indian Sign Language (ISL) interpretation
+- 🔊 Multi-language text-to-speech
+- 💬 Real-time captions
+- ⠿ Braille display support
+- 🌐 Offline-first learning
+- 📊 Personalized analytics
+- 🔐 Enterprise-grade cybersecurity
 
 ---
 
-## Pages Built
+# 🚀 Key Features
 
-### Student Dashboard
-- `/student` — Home with stats, today's lesson, live class alert
-- `/student/lessons` — NCERT-aligned lesson browser with filters
-- `/student/lessons/[id]` — Full lesson player with ISL avatar + captions + TTS
-- `/student/sign-lab` — Camera + ISL gesture practice with dictionary
-- `/student/live-class` — Join live sessions with ISL + captions
-- `/student/assessments` — Quiz list with status tracking
-- `/student/assessments/[id]` — Interactive MCQ quiz with review
-- `/student/progress` — Progress charts, quiz history, ISL milestones
-- `/student/reports` — Period report selector + PDF download
-- `/student/profile` — Profile editing + accessibility preferences
+## 👨‍🎓 Student Experience
+- Adaptive learning dashboard
+- AI-powered lesson narration
+- ISL avatar overlay
+- Live classes with captions
+- Sign language practice lab
+- Accessible assessments
+- Progress analytics
+- Downloadable PDF reports
 
-### Teacher Dashboard
-- `/teacher` — KPIs, AI processing queue, engagement heatmap
-- `/teacher/studio` — Lesson upload with AI auto-processing
-- `/teacher/studio/[id]` — Caption editor, metadata, AI status
-- `/teacher/live` — Start/manage live sessions with participants
-- `/teacher/students` — Student roster with disability profiles
-- `/teacher/assessments` — Create and manage quizzes
-- `/teacher/reports` — Class performance + at-risk students
+## 👩‍🏫 Teacher Experience
+- Lesson studio with AI auto-processing
+- Caption editor
+- Student performance insights
+- Quiz creation tools
+- Live classroom management
 
-### Admin Dashboard
-- `/admin` — Institution analytics with charts
-- `/admin/students` — Bulk student management
-- `/admin/teachers` — Teacher management
-- `/admin/analytics` — Deep analytics with heatmap + DAU charts
-- `/admin/compliance` — RPwD Act 2016 + NEP 2020 compliance checker
-- `/admin/reports` — All report formats download center
+## 🏫 Institution Admin
+- Bulk onboarding
+- Compliance tracking
+- Analytics dashboards
+- Audit logs
 
-### Super Admin Panel
-- `/super-admin` — Service health, AI metrics, feature flags, error log
-- `/super-admin/institutions` — All institutions management
-- `/super-admin/users` — All users across institutions
-- `/super-admin/ai-monitor` — Real-time AI model performance
-- `/super-admin/reports` — Platform-wide analytics + scheduled reports
+## 🌐 Super Admin
+- Multi-tenant platform management
+- Feature flags
+- AI model monitoring
+- Security and health dashboards
 
 ---
 
-## Tech Stack
+# ♿ Accessibility Features
 
-| Layer | Technology |
-|---|---|
-| Frontend Framework | Next.js 14 (App Router) |
-| Language | TypeScript (strict) |
-| Styling | TailwindCSS + CSS variables (glassmorphism) |
-| Auth | Supabase Auth (JWT) |
-| Database | Supabase (PostgreSQL + RLS) |
-| PDF Reports | @react-pdf/renderer |
-| Forms | React Hook Form + Zod |
-| Backend AI | Python FastAPI |
-
----
-
-## Accessibility Features
-
-- 🤟 **ISL Avatar** — AI-generated Indian Sign Language interpretation overlay
-- 💬 **Live Captions** — Whisper-powered auto-captions on all content
-- 🔊 **Text-to-Speech** — Multi-language TTS for visually impaired students
-- ⠿ **Braille Display** — HID Braille device support for DeafBlind users
-- 🌐 **Offline Mode** — PWA with cached lessons for low-connectivity areas
-- 🎮 **Switch Access** — Motor-impaired navigation via switch controls
-- 🎨 **High Contrast** — WCAG-compliant high contrast theme
+| Feature | Description |
+|------|------|
+| 🤟 ISL Avatar | AI-generated Indian Sign Language interpretation |
+| 💬 Live Captions | Real-time speech-to-text |
+| 🔊 Text-to-Speech | Supports Hindi, English, Urdu, Tamil, and more |
+| ⠿ Braille Support | HID Braille device integration |
+| 🎮 Switch Access | Navigation for motor impairments |
+| 🎨 High Contrast | WCAG 2.2 AA compliant themes |
+| 🌐 Offline Mode | PWA with cached lessons |
 
 ---
 
-*Built for India's 2.68 crore persons with disabilities. Powered by AI.*
-```
+# 🔐 Security Architecture
+
+Sparsh is designed with a **security-first approach** aligned with modern best practices.
+
+## Security Controls
+
+- 🔐 Supabase Row-Level Security (RLS)
+- 🔑 JWT authentication
+- 🔒 HTTPS/TLS encryption
+- 🛡️ OWASP Top 10 mitigations
+- 🚫 Rate limiting
+- 🧹 Input validation with Zod/Pydantic
+- 📋 Audit logging
+- 🔍 Dependency vulnerability scanning
+- 🧠 Secrets managed via environment variables
+- 🗂️ Role-Based Access Control (RBAC)
+
+## Compliance Standards
+
+- OWASP ASVS
+- GDPR-ready architecture
+- India DPDP Act 2023
+- RPwD Act 2016
+- NEP 2020
+- WCAG 2.2 AA
+
+---
+
+# 🛠 Tech Stack
+
+## Frontend
+- Next.js 14 (App Router)
+- TypeScript (Strict Mode)
+- Tailwind CSS
+- React Hook Form
+- Zod
+- @react-pdf/renderer
+
+## Backend
+- FastAPI
+- Python
+- Pydantic
+- Celery (optional)
+
+## Database
+- Supabase PostgreSQL
+- Row-Level Security
+- Realtime APIs
+
+## AI Services
+- Whisper for captions
+- TTS engines
+- ISL gesture recognition
+
+---
+
+# 🏗 System Architecture
+
+```text
+Users
+ ├── Students
+ ├── Teachers
+ ├── Admins
+ └── Super Admin
+
+Frontend (Next.js)
+        ↓
+API Gateway / FastAPI
+        ↓
+Supabase Auth (JWT)
+        ↓
+PostgreSQL + RLS
+        ↓
+AI Services
+ ├── Whisper
+ ├── TTS
+ ├── ISL Avatar
+ └── Analytics Engine
