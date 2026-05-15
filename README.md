@@ -11,30 +11,30 @@
 4. Run `database/seed.sql` for demo data (optional)
 
 ### 2. Frontend (Next.js)
-```bash
+\`\`\`bash
 cd frontend
 npm install
 npm run dev
 # → http://localhost:3000
-```
+\`\`\`
 
 ### 3. Backend (FastAPI)
-```bash
+\`\`\`bash
 cd backend
 pip install -r requirements.txt
 python -m uvicorn main:app --reload
 # → http://localhost:8000
 # → http://localhost:8000/docs  (Swagger UI)
-```
+\`\`\`
 
 ### 4. Environment Variables
 Create `frontend/.env.local`:
-```env
+\`\`\`env
 NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
 SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
 NEXT_PUBLIC_BACKEND_URL=http://localhost:8000
-```
+\`\`\`
 
 ---
 
@@ -51,11 +51,11 @@ NEXT_PUBLIC_BACKEND_URL=http://localhost:8000
 ### Creating Your First Super Admin
 1. Register at `/register` with any email/password
 2. Go to Supabase SQL Editor and run:
-```sql
+\`\`\`sql
 UPDATE profiles 
 SET role = 'super_admin' 
 WHERE id = (SELECT id FROM auth.users WHERE email = 'your@email.com');
-```
+\`\`\`
 3. Log in at `/login` — you'll be redirected to `/super-admin`
 
 ---
@@ -128,3 +128,4 @@ WHERE id = (SELECT id FROM auth.users WHERE email = 'your@email.com');
 ---
 
 *Built for India's 2.68 crore persons with disabilities. Powered by AI.*
+```
